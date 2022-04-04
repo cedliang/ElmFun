@@ -65,7 +65,6 @@ update msg _ =
     ChainQuery txHash -> (Loading, 
       Http.get
         { url = "http://127.0.0.1:3000/tx/" ++ txHash
-        -- , expect = Http.expectJson GotTx txDecoder
         , expect = Http.expectJson GotTx multipleTxsDecoder
         })
     
@@ -134,9 +133,10 @@ spinAndSlide =
         { startAt = [ P.rotate 0, P.x 0 ]
         , options = [ Animation.loop ]
         }
-        [ Animation.step 1000 [ P.rotate 180, P.x 50 ]
-        , Animation.wait 500
-        , Animation.step 1000 [ P.rotate 360, P.x 0 ]
+        [ Animation.step 300 [ P.rotate 180, P.x 0 ]
+        , Animation.wait 100
+        , Animation.step 300 [ P.rotate 540, P.x 0 ]
+        , Animation.wait 350
         ]
 
 
