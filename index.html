@@ -6626,31 +6626,717 @@ var $author$project$CardanoTxQuery$ChainQuery = function (a) {
 	return {$: 'ChainQuery', a: a};
 };
 var $lucamug$style_framework$Framework$Spinner$ThreeCircles = {$: 'ThreeCircles'};
+var $mdgriffith$elm_ui$Internal$Model$Behind = {$: 'Behind'};
+var $mdgriffith$elm_ui$Internal$Model$Nearby = F2(
+	function (a, b) {
+		return {$: 'Nearby', a: a, b: b};
+	});
+var $mdgriffith$elm_ui$Internal$Model$NoAttribute = {$: 'NoAttribute'};
+var $mdgriffith$elm_ui$Element$createNearby = F2(
+	function (loc, element) {
+		if (element.$ === 'Empty') {
+			return $mdgriffith$elm_ui$Internal$Model$NoAttribute;
+		} else {
+			return A2($mdgriffith$elm_ui$Internal$Model$Nearby, loc, element);
+		}
+	});
+var $mdgriffith$elm_ui$Element$behindContent = function (element) {
+	return A2($mdgriffith$elm_ui$Element$createNearby, $mdgriffith$elm_ui$Internal$Model$Behind, element);
+};
+var $mdgriffith$elm_ui$Internal$Model$Unstyled = function (a) {
+	return {$: 'Unstyled', a: a};
+};
+var $elm$core$Basics$always = F2(
+	function (a, _v0) {
+		return a;
+	});
+var $mdgriffith$elm_ui$Internal$Model$unstyled = A2($elm$core$Basics$composeL, $mdgriffith$elm_ui$Internal$Model$Unstyled, $elm$core$Basics$always);
+var $mdgriffith$elm_ui$Element$html = $mdgriffith$elm_ui$Internal$Model$unstyled;
 var $mdgriffith$elm_ui$Internal$Model$Attr = function (a) {
 	return {$: 'Attr', a: a};
 };
-var $mdgriffith$elm_ui$Internal$Model$Button = {$: 'Button'};
-var $mdgriffith$elm_ui$Internal$Model$Describe = function (a) {
-	return {$: 'Describe', a: a};
+var $mdgriffith$elm_ui$Element$htmlAttribute = $mdgriffith$elm_ui$Internal$Model$Attr;
+var $elm$core$List$append = F2(
+	function (xs, ys) {
+		if (!ys.b) {
+			return xs;
+		} else {
+			return A3($elm$core$List$foldr, $elm$core$List$cons, ys, xs);
+		}
+	});
+var $elm$json$Json$Encode$string = _Json_wrap;
+var $elm$html$Html$Attributes$stringProperty = F2(
+	function (key, string) {
+		return A2(
+			_VirtualDom_property,
+			key,
+			$elm$json$Json$Encode$string(string));
+	});
+var $elm$html$Html$Attributes$class = $elm$html$Html$Attributes$stringProperty('className');
+var $andrewMacmurray$elm_simple_animation$Internal$Animation$duration_ = function (_v0) {
+	var d = _v0.a;
+	return d;
 };
+var $elm$core$String$concat = function (strings) {
+	return A2($elm$core$String$join, '', strings);
+};
+var $andrewMacmurray$elm_simple_animation$Internal$Animation$joinWith = function (f) {
+	return A2(
+		$elm$core$Basics$composeR,
+		$elm$core$List$map(f),
+		$elm$core$String$concat);
+};
+var $elm$core$Set$Set_elm_builtin = function (a) {
+	return {$: 'Set_elm_builtin', a: a};
+};
+var $elm$core$Set$empty = $elm$core$Set$Set_elm_builtin($elm$core$Dict$empty);
+var $elm$core$Set$insert = F2(
+	function (key, _v0) {
+		var dict = _v0.a;
+		return $elm$core$Set$Set_elm_builtin(
+			A3($elm$core$Dict$insert, key, _Utils_Tuple0, dict));
+	});
+var $elm$core$Set$fromList = function (list) {
+	return A3($elm$core$List$foldl, $elm$core$Set$insert, $elm$core$Set$empty, list);
+};
+var $andrewMacmurray$elm_simple_animation$Internal$Animation$Property$escapedChars_ = $elm$core$Set$fromList(
+	_List_fromArray(
+		[
+			_Utils_chr('.'),
+			_Utils_chr(' '),
+			_Utils_chr(','),
+			_Utils_chr('#'),
+			_Utils_chr('$'),
+			_Utils_chr('%'),
+			_Utils_chr('('),
+			_Utils_chr(')'),
+			_Utils_chr('&'),
+			_Utils_chr(';'),
+			_Utils_chr(':'),
+			_Utils_chr('\"'),
+			_Utils_chr('\''),
+			_Utils_chr('*'),
+			_Utils_chr('~'),
+			_Utils_chr('!'),
+			_Utils_chr('@'),
+			_Utils_chr('^'),
+			_Utils_chr('+'),
+			_Utils_chr('='),
+			_Utils_chr('/'),
+			_Utils_chr('?'),
+			_Utils_chr('>'),
+			_Utils_chr('<'),
+			_Utils_chr('['),
+			_Utils_chr(']'),
+			_Utils_chr('{'),
+			_Utils_chr('}'),
+			_Utils_chr('|'),
+			_Utils_chr('`')
+		]));
+var $elm$core$Dict$member = F2(
+	function (key, dict) {
+		var _v0 = A2($elm$core$Dict$get, key, dict);
+		if (_v0.$ === 'Just') {
+			return true;
+		} else {
+			return false;
+		}
+	});
+var $elm$core$Set$member = F2(
+	function (key, _v0) {
+		var dict = _v0.a;
+		return A2($elm$core$Dict$member, key, dict);
+	});
+var $elm$core$Basics$not = _Basics_not;
+var $andrewMacmurray$elm_simple_animation$Internal$Animation$Property$escapedChars = function (c) {
+	return !A2($elm$core$Set$member, c, $andrewMacmurray$elm_simple_animation$Internal$Animation$Property$escapedChars_);
+};
+var $elm$core$String$filter = _String_filter;
+var $andrewMacmurray$elm_simple_animation$Internal$Animation$Property$escape = $elm$core$String$filter($andrewMacmurray$elm_simple_animation$Internal$Animation$Property$escapedChars);
+var $elm$core$Basics$round = _Basics_round;
+var $andrewMacmurray$elm_simple_animation$Internal$Transform$rounded = F2(
+	function (n, val) {
+		return $elm$core$String$fromInt(
+			$elm$core$Basics$round(val) * n);
+	});
+var $andrewMacmurray$elm_simple_animation$Internal$Transform$name = function (t) {
+	switch (t.$) {
+		case 'Translate':
+			switch (t.a.$) {
+				case 'Y':
+					var y_ = t.a.a;
+					return 'y' + A2($andrewMacmurray$elm_simple_animation$Internal$Transform$rounded, 1, y_);
+				case 'X':
+					var x_ = t.a.a;
+					return 'x' + A2($andrewMacmurray$elm_simple_animation$Internal$Transform$rounded, 1, x_);
+				default:
+					var _v1 = t.a;
+					var x_ = _v1.a;
+					var y_ = _v1.b;
+					return 'x' + (A2($andrewMacmurray$elm_simple_animation$Internal$Transform$rounded, 1, x_) + ('y' + A2($andrewMacmurray$elm_simple_animation$Internal$Transform$rounded, 1, y_)));
+			}
+		case 'Rotate':
+			var r_ = t.a;
+			return 'r' + A2($andrewMacmurray$elm_simple_animation$Internal$Transform$rounded, 1, r_);
+		default:
+			var x_ = t.a;
+			var y_ = t.b;
+			return 'sx' + (A2($andrewMacmurray$elm_simple_animation$Internal$Transform$rounded, 100, x_) + ('sy' + A2($andrewMacmurray$elm_simple_animation$Internal$Transform$rounded, 100, y_)));
+	}
+};
+var $andrewMacmurray$elm_simple_animation$Internal$Animation$Property$rounded = F2(
+	function (n, val) {
+		return $elm$core$String$fromInt(
+			$elm$core$Basics$round(val * n));
+	});
+var $andrewMacmurray$elm_simple_animation$Internal$Animation$Property$name = function (prop) {
+	switch (prop.$) {
+		case 'Opacity':
+			var n = prop.a;
+			return 'o' + A2($andrewMacmurray$elm_simple_animation$Internal$Animation$Property$rounded, 100, n);
+		case 'Transform':
+			var t = prop.a;
+			return $andrewMacmurray$elm_simple_animation$Internal$Transform$name(t);
+		default:
+			var n = prop.a;
+			var p = prop.b;
+			return _Utils_ap(
+				$andrewMacmurray$elm_simple_animation$Internal$Animation$Property$escape(n),
+				$andrewMacmurray$elm_simple_animation$Internal$Animation$Property$escape(p));
+	}
+};
+var $andrewMacmurray$elm_simple_animation$Internal$Animation$frameName = function (_v0) {
+	var dur = _v0.a;
+	var props = _v0.b;
+	return 'f' + ($elm$core$String$fromInt(
+		$elm$core$Basics$round(dur)) + A2($andrewMacmurray$elm_simple_animation$Internal$Animation$joinWith, $andrewMacmurray$elm_simple_animation$Internal$Animation$Property$name, props));
+};
+var $andrewMacmurray$elm_simple_animation$Internal$Animation$framesNames = $andrewMacmurray$elm_simple_animation$Internal$Animation$joinWith($andrewMacmurray$elm_simple_animation$Internal$Animation$frameName);
+var $andrewMacmurray$elm_simple_animation$Internal$Animation$frames_ = function (_v0) {
+	var f = _v0.c;
+	return f;
+};
+var $andrewMacmurray$elm_simple_animation$Internal$Animation$isEmpty = function (anim) {
+	return !$andrewMacmurray$elm_simple_animation$Internal$Animation$duration_(anim);
+};
+var $andrewMacmurray$elm_simple_animation$Internal$Animation$iterationName = function (i) {
+	if (i.$ === 'Loop') {
+		return 'infinite';
+	} else {
+		var count = i.a;
+		return 'count-' + $elm$core$String$fromInt(count);
+	}
+};
+var $elm$core$String$fromFloat = _String_fromNumber;
+var $andrewMacmurray$elm_simple_animation$Internal$Ease$toString = function (e) {
+	switch (e.$) {
+		case 'Cubic':
+			var a = e.a;
+			var b = e.b;
+			var c = e.c;
+			var d = e.d;
+			return 'cubic-bezier(' + (A2(
+				$elm$core$String$join,
+				',',
+				_List_fromArray(
+					[
+						$elm$core$String$fromFloat(a),
+						$elm$core$String$fromFloat(b),
+						$elm$core$String$fromFloat(c),
+						$elm$core$String$fromFloat(d)
+					])) + ')');
+		case 'Linear':
+			return 'linear';
+		case 'Ease':
+			return 'ease';
+		case 'EaseIn':
+			return 'ease-in';
+		case 'EaseOut':
+			return 'ease-out';
+		default:
+			return 'ease-in-out';
+	}
+};
+var $andrewMacmurray$elm_simple_animation$Internal$Animation$optionName = function (o) {
+	switch (o.$) {
+		case 'Delay':
+			var n = o.a;
+			return 'd' + $elm$core$String$fromInt(n);
+		case 'Ease':
+			var ease = o.a;
+			return $andrewMacmurray$elm_simple_animation$Internal$Animation$Property$escape(
+				$andrewMacmurray$elm_simple_animation$Internal$Ease$toString(ease));
+		case 'Iteration':
+			var i = o.a;
+			return $andrewMacmurray$elm_simple_animation$Internal$Animation$iterationName(i);
+		case 'Yoyo':
+			return 'yoyo';
+		default:
+			return 'rev';
+	}
+};
+var $andrewMacmurray$elm_simple_animation$Internal$Animation$optionNames = $andrewMacmurray$elm_simple_animation$Internal$Animation$joinWith($andrewMacmurray$elm_simple_animation$Internal$Animation$optionName);
+var $andrewMacmurray$elm_simple_animation$Internal$Animation$rawOptions_ = function (_v0) {
+	var o = _v0.b;
+	return o;
+};
+var $andrewMacmurray$elm_simple_animation$Internal$Animation$name_ = function (anim) {
+	return $andrewMacmurray$elm_simple_animation$Internal$Animation$isEmpty(anim) ? 'anim-empty' : ('anim-' + ($elm$core$String$fromInt(
+		$andrewMacmurray$elm_simple_animation$Internal$Animation$duration_(anim)) + ($andrewMacmurray$elm_simple_animation$Internal$Animation$optionNames(
+		$andrewMacmurray$elm_simple_animation$Internal$Animation$rawOptions_(anim)) + $andrewMacmurray$elm_simple_animation$Internal$Animation$framesNames(
+		$andrewMacmurray$elm_simple_animation$Internal$Animation$frames_(anim)))));
+};
+var $elm$virtual_dom$VirtualDom$node = function (tag) {
+	return _VirtualDom_node(
+		_VirtualDom_noScript(tag));
+};
+var $elm$html$Html$node = $elm$virtual_dom$VirtualDom$node;
+var $andrewMacmurray$elm_simple_animation$Internal$Unit$ms = function (n) {
+	return $elm$core$String$fromInt(n) + 'ms';
+};
+var $andrewMacmurray$elm_simple_animation$Internal$Animation$animationDuration = function (anim) {
+	return $andrewMacmurray$elm_simple_animation$Internal$Unit$ms(
+		$andrewMacmurray$elm_simple_animation$Internal$Animation$duration_(anim));
+};
+var $andrewMacmurray$elm_simple_animation$Internal$Animation$collectOption = F2(
+	function (o, opts) {
+		switch (o.$) {
+			case 'Delay':
+				var ms = o.a;
+				return _Utils_update(
+					opts,
+					{
+						delay: $elm$core$Maybe$Just(ms)
+					});
+			case 'Iteration':
+				var i = o.a;
+				return _Utils_update(
+					opts,
+					{
+						iteration: $elm$core$Maybe$Just(i)
+					});
+			case 'Ease':
+				var e = o.a;
+				return _Utils_update(
+					opts,
+					{
+						timingFunction: $elm$core$Maybe$Just(e)
+					});
+			case 'Yoyo':
+				return _Utils_update(
+					opts,
+					{isYoyo: true});
+			default:
+				return _Utils_update(
+					opts,
+					{reversed: true});
+		}
+	});
+var $andrewMacmurray$elm_simple_animation$Internal$Animation$defaults = {delay: $elm$core$Maybe$Nothing, isYoyo: false, iteration: $elm$core$Maybe$Nothing, reversed: false, timingFunction: $elm$core$Maybe$Nothing};
+var $andrewMacmurray$elm_simple_animation$Internal$Animation$Count = function (a) {
+	return {$: 'Count', a: a};
+};
+var $andrewMacmurray$elm_simple_animation$Internal$Animation$Loop = {$: 'Loop'};
+var $andrewMacmurray$elm_simple_animation$Internal$Animation$iterationForYoyo = function (opts) {
+	var _v0 = opts.iteration;
+	if (_v0.$ === 'Just') {
+		if (_v0.a.$ === 'Loop') {
+			var _v1 = _v0.a;
+			return $andrewMacmurray$elm_simple_animation$Internal$Animation$Loop;
+		} else {
+			var n = _v0.a.a;
+			return $andrewMacmurray$elm_simple_animation$Internal$Animation$Count(n * 2);
+		}
+	} else {
+		return $andrewMacmurray$elm_simple_animation$Internal$Animation$Count(2);
+	}
+};
+var $andrewMacmurray$elm_simple_animation$Internal$Animation$normalise = function (opts) {
+	return opts.isYoyo ? _Utils_update(
+		opts,
+		{
+			iteration: $elm$core$Maybe$Just(
+				$andrewMacmurray$elm_simple_animation$Internal$Animation$iterationForYoyo(opts))
+		}) : opts;
+};
+var $andrewMacmurray$elm_simple_animation$Internal$Animation$options_ = A2(
+	$elm$core$Basics$composeR,
+	$andrewMacmurray$elm_simple_animation$Internal$Animation$rawOptions_,
+	A2(
+		$elm$core$Basics$composeR,
+		A2($elm$core$List$foldl, $andrewMacmurray$elm_simple_animation$Internal$Animation$collectOption, $andrewMacmurray$elm_simple_animation$Internal$Animation$defaults),
+		$andrewMacmurray$elm_simple_animation$Internal$Animation$normalise));
+var $andrewMacmurray$elm_simple_animation$Internal$Animation$renderDirection = function (d) {
+	switch (d.$) {
+		case 'Alternate_':
+			return 'alternate';
+		case 'Reverse_':
+			return 'reverse';
+		default:
+			return 'alternate-reverse';
+	}
+};
+var $andrewMacmurray$elm_simple_animation$Internal$Animation$renderIteration = function (i) {
+	if (i.$ === 'Loop') {
+		return 'infinite';
+	} else {
+		var count = i.a;
+		return $elm$core$String$fromInt(count);
+	}
+};
+var $elm$core$Maybe$map = F2(
+	function (f, maybe) {
+		if (maybe.$ === 'Just') {
+			var value = maybe.a;
+			return $elm$core$Maybe$Just(
+				f(value));
+		} else {
+			return $elm$core$Maybe$Nothing;
+		}
+	});
+var $andrewMacmurray$elm_simple_animation$Internal$Animation$renderOption = F2(
+	function (name, toProp) {
+		return $elm$core$Maybe$map(
+			function (x) {
+				return name + (': ' + toProp(x));
+			});
+	});
+var $andrewMacmurray$elm_simple_animation$Internal$Animation$AlternateReverse_ = {$: 'AlternateReverse_'};
+var $andrewMacmurray$elm_simple_animation$Internal$Animation$Alternate_ = {$: 'Alternate_'};
+var $andrewMacmurray$elm_simple_animation$Internal$Animation$Reverse_ = {$: 'Reverse_'};
+var $andrewMacmurray$elm_simple_animation$Internal$Animation$toDirection = function (opts) {
+	return (opts.isYoyo && opts.reversed) ? $elm$core$Maybe$Just($andrewMacmurray$elm_simple_animation$Internal$Animation$AlternateReverse_) : (opts.reversed ? $elm$core$Maybe$Just($andrewMacmurray$elm_simple_animation$Internal$Animation$Reverse_) : (opts.isYoyo ? $elm$core$Maybe$Just($andrewMacmurray$elm_simple_animation$Internal$Animation$Alternate_) : $elm$core$Maybe$Nothing));
+};
+var $andrewMacmurray$elm_simple_animation$Internal$Animation$renderOptions_ = function (opts) {
+	return _List_fromArray(
+		[
+			A3($andrewMacmurray$elm_simple_animation$Internal$Animation$renderOption, 'animation-delay', $andrewMacmurray$elm_simple_animation$Internal$Unit$ms, opts.delay),
+			A3($andrewMacmurray$elm_simple_animation$Internal$Animation$renderOption, 'animation-timing-function', $andrewMacmurray$elm_simple_animation$Internal$Ease$toString, opts.timingFunction),
+			A3($andrewMacmurray$elm_simple_animation$Internal$Animation$renderOption, 'animation-iteration-count', $andrewMacmurray$elm_simple_animation$Internal$Animation$renderIteration, opts.iteration),
+			A3(
+			$andrewMacmurray$elm_simple_animation$Internal$Animation$renderOption,
+			'animation-direction',
+			$andrewMacmurray$elm_simple_animation$Internal$Animation$renderDirection,
+			$andrewMacmurray$elm_simple_animation$Internal$Animation$toDirection(opts))
+		]);
+};
+var $andrewMacmurray$elm_simple_animation$Internal$Animation$renderOptions = A2(
+	$elm$core$Basics$composeR,
+	$andrewMacmurray$elm_simple_animation$Internal$Animation$options_,
+	A2(
+		$elm$core$Basics$composeR,
+		$andrewMacmurray$elm_simple_animation$Internal$Animation$renderOptions_,
+		$elm$core$List$filterMap($elm$core$Basics$identity)));
+var $andrewMacmurray$elm_simple_animation$Internal$Animation$classProperties = function (anim) {
+	return A2(
+		$elm$core$String$join,
+		';\n',
+		A2(
+			$elm$core$List$append,
+			_List_fromArray(
+				[
+					'animation-name: ' + $andrewMacmurray$elm_simple_animation$Internal$Animation$name_(anim),
+					'animation-duration: ' + $andrewMacmurray$elm_simple_animation$Internal$Animation$animationDuration(anim),
+					'animation-fill-mode: both'
+				]),
+			$andrewMacmurray$elm_simple_animation$Internal$Animation$renderOptions(anim)));
+};
+var $andrewMacmurray$elm_simple_animation$Internal$Animation$classDefinition_ = function (anim) {
+	return '.' + ($andrewMacmurray$elm_simple_animation$Internal$Animation$name_(anim) + ('{\n' + ($andrewMacmurray$elm_simple_animation$Internal$Animation$classProperties(anim) + '\n};')));
+};
+var $andrewMacmurray$elm_simple_animation$Internal$Unit$pc = function (n) {
+	return $elm$core$String$fromFloat(n) + '%';
+};
+var $elm$core$List$concat = function (lists) {
+	return A3($elm$core$List$foldr, $elm$core$List$append, _List_Nil, lists);
+};
+var $andrewMacmurray$elm_simple_animation$Internal$Animation$Property$filterMaybes = $elm$core$List$filterMap($elm$core$Basics$identity);
+var $elm$core$List$head = function (list) {
+	if (list.b) {
+		var x = list.a;
+		var xs = list.b;
+		return $elm$core$Maybe$Just(x);
+	} else {
+		return $elm$core$Maybe$Nothing;
+	}
+};
+var $andrewMacmurray$elm_simple_animation$Internal$Animation$Property$getProp = function (f) {
+	return A2(
+		$elm$core$Basics$composeR,
+		$elm$core$List$filterMap(f),
+		$elm$core$List$head);
+};
+var $andrewMacmurray$elm_simple_animation$Internal$Animation$Property$opacity_ = function (p) {
+	if (p.$ === 'Opacity') {
+		var n = p.a;
+		return $elm$core$Maybe$Just(
+			'opacity:' + $elm$core$String$fromFloat(n));
+	} else {
+		return $elm$core$Maybe$Nothing;
+	}
+};
+var $andrewMacmurray$elm_simple_animation$Internal$Animation$Property$raw_ = function (p) {
+	if (p.$ === 'Raw') {
+		var k = p.a;
+		var v = p.b;
+		return $elm$core$Maybe$Just(k + (':' + v));
+	} else {
+		return $elm$core$Maybe$Nothing;
+	}
+};
+var $andrewMacmurray$elm_simple_animation$Internal$Animation$Property$collectTransforms = A2(
+	$elm$core$List$foldl,
+	F2(
+		function (val, acc) {
+			if (val.$ === 'Transform') {
+				var t = val.a;
+				return A2($elm$core$List$cons, t, acc);
+			} else {
+				return acc;
+			}
+		}),
+	_List_Nil);
+var $andrewMacmurray$elm_simple_animation$Internal$Transform$combine = F2(
+	function (transform, combined) {
+		switch (transform.$) {
+			case 'Rotate':
+				var n = transform.a;
+				return _Utils_update(
+					combined,
+					{
+						rotate: $elm$core$Maybe$Just(n)
+					});
+			case 'ScaleXY':
+				var x_ = transform.a;
+				var y_ = transform.b;
+				return _Utils_update(
+					combined,
+					{
+						scale: $elm$core$Maybe$Just(
+							_Utils_Tuple2(x_, y_))
+					});
+			default:
+				switch (transform.a.$) {
+					case 'XY':
+						var _v1 = transform.a;
+						var x_ = _v1.a;
+						var y_ = _v1.b;
+						return _Utils_update(
+							combined,
+							{
+								xy: $elm$core$Maybe$Just(
+									_Utils_Tuple2(x_, y_))
+							});
+					case 'X':
+						var n = transform.a.a;
+						return _Utils_update(
+							combined,
+							{
+								x: $elm$core$Maybe$Just(n)
+							});
+					default:
+						var n = transform.a.a;
+						return _Utils_update(
+							combined,
+							{
+								y: $elm$core$Maybe$Just(n)
+							});
+				}
+		}
+	});
+var $andrewMacmurray$elm_simple_animation$Internal$Transform$empty = {rotate: $elm$core$Maybe$Nothing, scale: $elm$core$Maybe$Nothing, x: $elm$core$Maybe$Nothing, xy: $elm$core$Maybe$Nothing, y: $elm$core$Maybe$Nothing};
+var $elm$core$List$filter = F2(
+	function (isGood, list) {
+		return A3(
+			$elm$core$List$foldr,
+			F2(
+				function (x, xs) {
+					return isGood(x) ? A2($elm$core$List$cons, x, xs) : xs;
+				}),
+			_List_Nil,
+			list);
+	});
+var $elm$core$Maybe$withDefault = F2(
+	function (_default, maybe) {
+		if (maybe.$ === 'Just') {
+			var value = maybe.a;
+			return value;
+		} else {
+			return _default;
+		}
+	});
+var $andrewMacmurray$elm_simple_animation$Internal$Transform$render_ = function (f) {
+	return A2(
+		$elm$core$Basics$composeR,
+		$elm$core$Maybe$map(f),
+		$elm$core$Maybe$withDefault(''));
+};
+var $andrewMacmurray$elm_simple_animation$Internal$Transform$deg = function (n) {
+	return $elm$core$String$fromFloat(n) + 'deg';
+};
+var $andrewMacmurray$elm_simple_animation$Internal$Transform$join = $elm$core$String$join('');
+var $andrewMacmurray$elm_simple_animation$Internal$Transform$rotate_ = function (n) {
+	return $andrewMacmurray$elm_simple_animation$Internal$Transform$join(
+		_List_fromArray(
+			[
+				'rotate(',
+				$andrewMacmurray$elm_simple_animation$Internal$Transform$deg(n),
+				')'
+			]));
+};
+var $andrewMacmurray$elm_simple_animation$Internal$Transform$scale_ = function (_v0) {
+	var x_ = _v0.a;
+	var y_ = _v0.b;
+	return $andrewMacmurray$elm_simple_animation$Internal$Transform$join(
+		_List_fromArray(
+			[
+				'scale(',
+				$elm$core$String$fromFloat(x_),
+				',',
+				$elm$core$String$fromFloat(y_),
+				')'
+			]));
+};
+var $andrewMacmurray$elm_simple_animation$Internal$Transform$px = function (n) {
+	return $elm$core$String$fromFloat(n) + 'px';
+};
+var $andrewMacmurray$elm_simple_animation$Internal$Transform$translateX_ = function (n) {
+	return $andrewMacmurray$elm_simple_animation$Internal$Transform$join(
+		_List_fromArray(
+			[
+				'translateX(',
+				$andrewMacmurray$elm_simple_animation$Internal$Transform$px(n),
+				')'
+			]));
+};
+var $andrewMacmurray$elm_simple_animation$Internal$Transform$translateY_ = function (n) {
+	return $andrewMacmurray$elm_simple_animation$Internal$Transform$join(
+		_List_fromArray(
+			[
+				'translateY(',
+				$andrewMacmurray$elm_simple_animation$Internal$Transform$px(n),
+				')'
+			]));
+};
+var $andrewMacmurray$elm_simple_animation$Internal$Transform$translate_ = function (_v0) {
+	var x_ = _v0.a;
+	var y_ = _v0.b;
+	return $andrewMacmurray$elm_simple_animation$Internal$Transform$join(
+		_List_fromArray(
+			[
+				'translate(',
+				$andrewMacmurray$elm_simple_animation$Internal$Transform$px(x_),
+				',',
+				$andrewMacmurray$elm_simple_animation$Internal$Transform$px(y_),
+				')'
+			]));
+};
+var $andrewMacmurray$elm_simple_animation$Internal$Transform$render = function (combined) {
+	return A2(
+		$elm$core$String$join,
+		' ',
+		A2(
+			$elm$core$List$filter,
+			A2($elm$core$Basics$composeR, $elm$core$String$isEmpty, $elm$core$Basics$not),
+			_List_fromArray(
+				[
+					A2($andrewMacmurray$elm_simple_animation$Internal$Transform$render_, $andrewMacmurray$elm_simple_animation$Internal$Transform$translate_, combined.xy),
+					A2($andrewMacmurray$elm_simple_animation$Internal$Transform$render_, $andrewMacmurray$elm_simple_animation$Internal$Transform$translateX_, combined.x),
+					A2($andrewMacmurray$elm_simple_animation$Internal$Transform$render_, $andrewMacmurray$elm_simple_animation$Internal$Transform$translateY_, combined.y),
+					A2($andrewMacmurray$elm_simple_animation$Internal$Transform$render_, $andrewMacmurray$elm_simple_animation$Internal$Transform$scale_, combined.scale),
+					A2($andrewMacmurray$elm_simple_animation$Internal$Transform$render_, $andrewMacmurray$elm_simple_animation$Internal$Transform$rotate_, combined.rotate)
+				])));
+};
+var $andrewMacmurray$elm_simple_animation$Internal$Transform$toString = A2(
+	$elm$core$Basics$composeR,
+	A2($elm$core$List$foldl, $andrewMacmurray$elm_simple_animation$Internal$Transform$combine, $andrewMacmurray$elm_simple_animation$Internal$Transform$empty),
+	$andrewMacmurray$elm_simple_animation$Internal$Transform$render);
+var $andrewMacmurray$elm_simple_animation$Internal$Animation$Property$transform_ = function (props) {
+	var _v0 = $andrewMacmurray$elm_simple_animation$Internal$Animation$Property$collectTransforms(props);
+	if (!_v0.b) {
+		return $elm$core$Maybe$Nothing;
+	} else {
+		var transforms = _v0;
+		return $elm$core$Maybe$Just(
+			'transform:' + $andrewMacmurray$elm_simple_animation$Internal$Transform$toString(transforms));
+	}
+};
+var $andrewMacmurray$elm_simple_animation$Internal$Animation$Property$render = function (props) {
+	return A2(
+		$elm$core$String$join,
+		';',
+		$andrewMacmurray$elm_simple_animation$Internal$Animation$Property$filterMaybes(
+			$elm$core$List$concat(
+				_List_fromArray(
+					[
+						A2($elm$core$List$map, $andrewMacmurray$elm_simple_animation$Internal$Animation$Property$raw_, props),
+						_List_fromArray(
+						[
+							A2($andrewMacmurray$elm_simple_animation$Internal$Animation$Property$getProp, $andrewMacmurray$elm_simple_animation$Internal$Animation$Property$opacity_, props),
+							$andrewMacmurray$elm_simple_animation$Internal$Animation$Property$transform_(props)
+						])
+					]))));
+};
+var $andrewMacmurray$elm_simple_animation$Internal$Animation$renderFrame = function (_v0) {
+	var percent = _v0.a;
+	var properties = _v0.b;
+	return $andrewMacmurray$elm_simple_animation$Internal$Unit$pc(percent) + ('{' + ($andrewMacmurray$elm_simple_animation$Internal$Animation$Property$render(properties) + ';}'));
+};
+var $andrewMacmurray$elm_simple_animation$Internal$Animation$keyframes_ = A2(
+	$elm$core$Basics$composeR,
+	$andrewMacmurray$elm_simple_animation$Internal$Animation$frames_,
+	A2(
+		$elm$core$Basics$composeR,
+		$elm$core$List$map($andrewMacmurray$elm_simple_animation$Internal$Animation$renderFrame),
+		$elm$core$String$join('\n')));
+var $andrewMacmurray$elm_simple_animation$Internal$Animation$keyframesAnimation_ = function (anim) {
+	return '@keyframes ' + ($andrewMacmurray$elm_simple_animation$Internal$Animation$name_(anim) + ('{' + ($andrewMacmurray$elm_simple_animation$Internal$Animation$keyframes_(anim) + '}')));
+};
+var $andrewMacmurray$elm_simple_animation$Internal$Animation$stylesheet_ = function (anim) {
+	return $andrewMacmurray$elm_simple_animation$Internal$Animation$keyframesAnimation_(anim) + ('\n' + $andrewMacmurray$elm_simple_animation$Internal$Animation$classDefinition_(anim));
+};
+var $elm$virtual_dom$VirtualDom$text = _VirtualDom_text;
+var $elm$html$Html$text = $elm$virtual_dom$VirtualDom$text;
+var $andrewMacmurray$elm_simple_animation$Simple$Animation$Animated$toStylesheet_ = function (anim) {
+	return A3(
+		$elm$html$Html$node,
+		'style',
+		_List_Nil,
+		_List_fromArray(
+			[
+				$elm$html$Html$text(
+				$andrewMacmurray$elm_simple_animation$Internal$Animation$stylesheet_(anim))
+			]));
+};
+var $andrewMacmurray$elm_simple_animation$Simple$Animation$Animated$ui = F5(
+	function (options, node_, anim, attrs, els) {
+		return A2(
+			node_,
+			A2(
+				$elm$core$List$append,
+				_List_fromArray(
+					[
+						options.behindContent(
+						options.html(
+							$andrewMacmurray$elm_simple_animation$Simple$Animation$Animated$toStylesheet_(anim))),
+						options.htmlAttribute(
+						$elm$html$Html$Attributes$class(
+							$andrewMacmurray$elm_simple_animation$Internal$Animation$name_(anim)))
+					]),
+				attrs),
+			els);
+	});
+var $author$project$CardanoTxQuery$animatedUi = $andrewMacmurray$elm_simple_animation$Simple$Animation$Animated$ui(
+	{behindContent: $mdgriffith$elm_ui$Element$behindContent, html: $mdgriffith$elm_ui$Element$html, htmlAttribute: $mdgriffith$elm_ui$Element$htmlAttribute});
 var $mdgriffith$elm_ui$Internal$Model$Unkeyed = function (a) {
 	return {$: 'Unkeyed', a: a};
 };
 var $mdgriffith$elm_ui$Internal$Model$AsEl = {$: 'AsEl'};
 var $mdgriffith$elm_ui$Internal$Model$asEl = $mdgriffith$elm_ui$Internal$Model$AsEl;
-var $mdgriffith$elm_ui$Internal$Style$classes = {above: 'a', active: 'atv', alignBottom: 'ab', alignCenterX: 'cx', alignCenterY: 'cy', alignContainerBottom: 'acb', alignContainerCenterX: 'accx', alignContainerCenterY: 'accy', alignContainerRight: 'acr', alignLeft: 'al', alignRight: 'ar', alignTop: 'at', alignedHorizontally: 'ah', alignedVertically: 'av', any: 's', behind: 'bh', below: 'b', bold: 'w7', borderDashed: 'bd', borderDotted: 'bdt', borderNone: 'bn', borderSolid: 'bs', capturePointerEvents: 'cpe', clip: 'cp', clipX: 'cpx', clipY: 'cpy', column: 'c', container: 'ctr', contentBottom: 'cb', contentCenterX: 'ccx', contentCenterY: 'ccy', contentLeft: 'cl', contentRight: 'cr', contentTop: 'ct', cursorPointer: 'cptr', cursorText: 'ctxt', focus: 'fcs', focusedWithin: 'focus-within', fullSize: 'fs', grid: 'g', hasBehind: 'hbh', heightContent: 'hc', heightExact: 'he', heightFill: 'hf', heightFillPortion: 'hfp', hover: 'hv', imageContainer: 'ic', inFront: 'fr', inputLabel: 'lbl', inputMultiline: 'iml', inputMultilineFiller: 'imlf', inputMultilineParent: 'imlp', inputMultilineWrapper: 'implw', inputText: 'it', italic: 'i', link: 'lnk', nearby: 'nb', noTextSelection: 'notxt', onLeft: 'ol', onRight: 'or', opaque: 'oq', overflowHidden: 'oh', page: 'pg', paragraph: 'p', passPointerEvents: 'ppe', root: 'ui', row: 'r', scrollbars: 'sb', scrollbarsX: 'sbx', scrollbarsY: 'sby', seButton: 'sbt', single: 'e', sizeByCapital: 'cap', spaceEvenly: 'sev', strike: 'sk', text: 't', textCenter: 'tc', textExtraBold: 'w8', textExtraLight: 'w2', textHeavy: 'w9', textJustify: 'tj', textJustifyAll: 'tja', textLeft: 'tl', textLight: 'w3', textMedium: 'w5', textNormalWeight: 'w4', textRight: 'tr', textSemiBold: 'w6', textThin: 'w1', textUnitalicized: 'tun', transition: 'ts', transparent: 'clr', underline: 'u', widthContent: 'wc', widthExact: 'we', widthFill: 'wf', widthFillPortion: 'wfp', wrapped: 'wrp'};
-var $elm$json$Json$Encode$bool = _Json_wrap;
-var $elm$html$Html$Attributes$boolProperty = F2(
-	function (key, bool) {
-		return A2(
-			_VirtualDom_property,
-			key,
-			$elm$json$Json$Encode$bool(bool));
-	});
-var $elm$html$Html$Attributes$disabled = $elm$html$Html$Attributes$boolProperty('disabled');
 var $mdgriffith$elm_ui$Internal$Model$Generic = {$: 'Generic'};
 var $mdgriffith$elm_ui$Internal$Model$div = $mdgriffith$elm_ui$Internal$Model$Generic;
 var $mdgriffith$elm_ui$Internal$Model$NoNearbyChildren = {$: 'NoNearbyChildren'};
+var $mdgriffith$elm_ui$Internal$Style$classes = {above: 'a', active: 'atv', alignBottom: 'ab', alignCenterX: 'cx', alignCenterY: 'cy', alignContainerBottom: 'acb', alignContainerCenterX: 'accx', alignContainerCenterY: 'accy', alignContainerRight: 'acr', alignLeft: 'al', alignRight: 'ar', alignTop: 'at', alignedHorizontally: 'ah', alignedVertically: 'av', any: 's', behind: 'bh', below: 'b', bold: 'w7', borderDashed: 'bd', borderDotted: 'bdt', borderNone: 'bn', borderSolid: 'bs', capturePointerEvents: 'cpe', clip: 'cp', clipX: 'cpx', clipY: 'cpy', column: 'c', container: 'ctr', contentBottom: 'cb', contentCenterX: 'ccx', contentCenterY: 'ccy', contentLeft: 'cl', contentRight: 'cr', contentTop: 'ct', cursorPointer: 'cptr', cursorText: 'ctxt', focus: 'fcs', focusedWithin: 'focus-within', fullSize: 'fs', grid: 'g', hasBehind: 'hbh', heightContent: 'hc', heightExact: 'he', heightFill: 'hf', heightFillPortion: 'hfp', hover: 'hv', imageContainer: 'ic', inFront: 'fr', inputLabel: 'lbl', inputMultiline: 'iml', inputMultilineFiller: 'imlf', inputMultilineParent: 'imlp', inputMultilineWrapper: 'implw', inputText: 'it', italic: 'i', link: 'lnk', nearby: 'nb', noTextSelection: 'notxt', onLeft: 'ol', onRight: 'or', opaque: 'oq', overflowHidden: 'oh', page: 'pg', paragraph: 'p', passPointerEvents: 'ppe', root: 'ui', row: 'r', scrollbars: 'sb', scrollbarsX: 'sbx', scrollbarsY: 'sby', seButton: 'sbt', single: 'e', sizeByCapital: 'cap', spaceEvenly: 'sev', strike: 'sk', text: 't', textCenter: 'tc', textExtraBold: 'w8', textExtraLight: 'w2', textHeavy: 'w9', textJustify: 'tj', textJustifyAll: 'tja', textLeft: 'tl', textLight: 'w3', textMedium: 'w5', textNormalWeight: 'w4', textRight: 'tr', textSemiBold: 'w6', textThin: 'w1', textUnitalicized: 'tun', transition: 'ts', transparent: 'clr', underline: 'u', widthContent: 'wc', widthExact: 'we', widthFill: 'wf', widthFillPortion: 'wfp', wrapped: 'wrp'};
 var $mdgriffith$elm_ui$Internal$Model$columnClass = $mdgriffith$elm_ui$Internal$Style$classes.any + (' ' + $mdgriffith$elm_ui$Internal$Style$classes.column);
 var $mdgriffith$elm_ui$Internal$Model$gridClass = $mdgriffith$elm_ui$Internal$Style$classes.any + (' ' + $mdgriffith$elm_ui$Internal$Style$classes.grid);
 var $mdgriffith$elm_ui$Internal$Model$pageClass = $mdgriffith$elm_ui$Internal$Style$classes.any + (' ' + $mdgriffith$elm_ui$Internal$Style$classes.page);
@@ -6679,9 +7365,6 @@ var $mdgriffith$elm_ui$Internal$Model$Keyed = function (a) {
 var $mdgriffith$elm_ui$Internal$Model$NoStyleSheet = {$: 'NoStyleSheet'};
 var $mdgriffith$elm_ui$Internal$Model$Styled = function (a) {
 	return {$: 'Styled', a: a};
-};
-var $mdgriffith$elm_ui$Internal$Model$Unstyled = function (a) {
-	return {$: 'Unstyled', a: a};
 };
 var $mdgriffith$elm_ui$Internal$Model$addChildren = F2(
 	function (existing, nearbyChildren) {
@@ -6763,20 +7446,7 @@ var $mdgriffith$elm_ui$Internal$Flag$alignBottom = $mdgriffith$elm_ui$Internal$F
 var $mdgriffith$elm_ui$Internal$Flag$alignRight = $mdgriffith$elm_ui$Internal$Flag$flag(40);
 var $mdgriffith$elm_ui$Internal$Flag$centerX = $mdgriffith$elm_ui$Internal$Flag$flag(42);
 var $mdgriffith$elm_ui$Internal$Flag$centerY = $mdgriffith$elm_ui$Internal$Flag$flag(43);
-var $elm$json$Json$Encode$string = _Json_wrap;
-var $elm$html$Html$Attributes$stringProperty = F2(
-	function (key, string) {
-		return A2(
-			_VirtualDom_property,
-			key,
-			$elm$json$Json$Encode$string(string));
-	});
-var $elm$html$Html$Attributes$class = $elm$html$Html$Attributes$stringProperty('className');
 var $elm$html$Html$div = _VirtualDom_node('div');
-var $elm$core$Set$Set_elm_builtin = function (a) {
-	return {$: 'Set_elm_builtin', a: a};
-};
-var $elm$core$Set$empty = $elm$core$Set$Set_elm_builtin($elm$core$Dict$empty);
 var $mdgriffith$elm_ui$Internal$Model$lengthClassName = function (x) {
 	switch (x.$) {
 		case 'Px':
@@ -6801,7 +7471,6 @@ var $elm$core$Tuple$second = function (_v0) {
 	var y = _v0.b;
 	return y;
 };
-var $elm$core$Basics$round = _Basics_round;
 var $mdgriffith$elm_ui$Internal$Model$floatClass = function (x) {
 	return $elm$core$String$fromInt(
 		$elm$core$Basics$round(x * 255));
@@ -6835,15 +7504,6 @@ var $mdgriffith$elm_ui$Internal$Model$transformClass = function (transform) {
 				'tfrm-' + ($mdgriffith$elm_ui$Internal$Model$floatClass(tx) + ('-' + ($mdgriffith$elm_ui$Internal$Model$floatClass(ty) + ('-' + ($mdgriffith$elm_ui$Internal$Model$floatClass(tz) + ('-' + ($mdgriffith$elm_ui$Internal$Model$floatClass(sx) + ('-' + ($mdgriffith$elm_ui$Internal$Model$floatClass(sy) + ('-' + ($mdgriffith$elm_ui$Internal$Model$floatClass(sz) + ('-' + ($mdgriffith$elm_ui$Internal$Model$floatClass(ox) + ('-' + ($mdgriffith$elm_ui$Internal$Model$floatClass(oy) + ('-' + ($mdgriffith$elm_ui$Internal$Model$floatClass(oz) + ('-' + $mdgriffith$elm_ui$Internal$Model$floatClass(angle))))))))))))))))))));
 	}
 };
-var $elm$core$Maybe$withDefault = F2(
-	function (_default, maybe) {
-		if (maybe.$ === 'Just') {
-			var value = maybe.a;
-			return value;
-		} else {
-			return _default;
-		}
-	});
 var $mdgriffith$elm_ui$Internal$Model$getStyleName = function (style) {
 	switch (style.$) {
 		case 'Shadows':
@@ -6935,26 +7595,6 @@ var $mdgriffith$elm_ui$Internal$Model$getStyleName = function (style) {
 				$mdgriffith$elm_ui$Internal$Model$transformClass(x));
 	}
 };
-var $elm$core$Set$insert = F2(
-	function (key, _v0) {
-		var dict = _v0.a;
-		return $elm$core$Set$Set_elm_builtin(
-			A3($elm$core$Dict$insert, key, _Utils_Tuple0, dict));
-	});
-var $elm$core$Dict$member = F2(
-	function (key, dict) {
-		var _v0 = A2($elm$core$Dict$get, key, dict);
-		if (_v0.$ === 'Just') {
-			return true;
-		} else {
-			return false;
-		}
-	});
-var $elm$core$Set$member = F2(
-	function (key, _v0) {
-		var dict = _v0.a;
-		return A2($elm$core$Dict$member, key, dict);
-	});
 var $mdgriffith$elm_ui$Internal$Model$reduceStyles = F2(
 	function (style, nevermind) {
 		var cache = nevermind.a;
@@ -6975,7 +7615,6 @@ var $mdgriffith$elm_ui$Internal$Model$Style = F2(
 var $mdgriffith$elm_ui$Internal$Style$dot = function (c) {
 	return '.' + c;
 };
-var $elm$core$String$fromFloat = _String_fromNumber;
 var $mdgriffith$elm_ui$Internal$Model$formatColor = function (_v0) {
 	var red = _v0.a;
 	var green = _v0.b;
@@ -7008,16 +7647,6 @@ var $mdgriffith$elm_ui$Internal$Model$formatBoxShadow = function (shadow) {
 					$mdgriffith$elm_ui$Internal$Model$formatColor(shadow.color))
 				])));
 };
-var $elm$core$Maybe$map = F2(
-	function (f, maybe) {
-		if (maybe.$ === 'Just') {
-			var value = maybe.a;
-			return $elm$core$Maybe$Just(
-				f(value));
-		} else {
-			return $elm$core$Maybe$Nothing;
-		}
-	});
 var $elm$core$Tuple$mapFirst = F2(
 	function (func, _v0) {
 		var x = _v0.a;
@@ -7135,10 +7764,6 @@ var $mdgriffith$elm_ui$Internal$Model$renderFocusStyle = function (focus) {
 					])))
 		]);
 };
-var $elm$virtual_dom$VirtualDom$node = function (tag) {
-	return _VirtualDom_node(
-		_VirtualDom_noScript(tag));
-};
 var $elm$virtual_dom$VirtualDom$property = F2(
 	function (key, value) {
 		return A2(
@@ -7187,17 +7812,6 @@ var $mdgriffith$elm_ui$Internal$Style$CenterY = {$: 'CenterY'};
 var $mdgriffith$elm_ui$Internal$Style$Top = {$: 'Top'};
 var $mdgriffith$elm_ui$Internal$Style$alignments = _List_fromArray(
 	[$mdgriffith$elm_ui$Internal$Style$Top, $mdgriffith$elm_ui$Internal$Style$Bottom, $mdgriffith$elm_ui$Internal$Style$Right, $mdgriffith$elm_ui$Internal$Style$Left, $mdgriffith$elm_ui$Internal$Style$CenterX, $mdgriffith$elm_ui$Internal$Style$CenterY]);
-var $elm$core$List$append = F2(
-	function (xs, ys) {
-		if (!ys.b) {
-			return xs;
-		} else {
-			return A3($elm$core$List$foldr, $elm$core$List$cons, ys, xs);
-		}
-	});
-var $elm$core$List$concat = function (lists) {
-	return A3($elm$core$List$foldr, $elm$core$List$append, _List_Nil, lists);
-};
 var $elm$core$List$concatMap = F2(
 	function (f, list) {
 		return $elm$core$List$concat(
@@ -9009,9 +9623,6 @@ var $mdgriffith$elm_ui$Internal$Style$sliderReset = '\ninput[type=range] {\n  -w
 var $mdgriffith$elm_ui$Internal$Style$thumbReset = '\ninput[type=range]::-webkit-slider-thumb {\n    -webkit-appearance: none;\n    opacity: 0.5;\n    width: 80px;\n    height: 80px;\n    background-color: black;\n    border:none;\n    border-radius: 5px;\n}\ninput[type=range]::-moz-range-thumb {\n    opacity: 0.5;\n    width: 80px;\n    height: 80px;\n    background-color: black;\n    border:none;\n    border-radius: 5px;\n}\ninput[type=range]::-ms-thumb {\n    opacity: 0.5;\n    width: 80px;\n    height: 80px;\n    background-color: black;\n    border:none;\n    border-radius: 5px;\n}\ninput[type=range][orient=vertical]{\n    writing-mode: bt-lr; /* IE */\n    -webkit-appearance: slider-vertical;  /* WebKit */\n}\n';
 var $mdgriffith$elm_ui$Internal$Style$trackReset = '\ninput[type=range]::-moz-range-track {\n    background: transparent;\n    cursor: pointer;\n}\ninput[type=range]::-ms-track {\n    background: transparent;\n    cursor: pointer;\n}\ninput[type=range]::-webkit-slider-runnable-track {\n    background: transparent;\n    cursor: pointer;\n}\n';
 var $mdgriffith$elm_ui$Internal$Style$overrides = '@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {' + ($mdgriffith$elm_ui$Internal$Style$dot($mdgriffith$elm_ui$Internal$Style$classes.any) + ($mdgriffith$elm_ui$Internal$Style$dot($mdgriffith$elm_ui$Internal$Style$classes.row) + (' > ' + ($mdgriffith$elm_ui$Internal$Style$dot($mdgriffith$elm_ui$Internal$Style$classes.any) + (' { flex-basis: auto !important; } ' + ($mdgriffith$elm_ui$Internal$Style$dot($mdgriffith$elm_ui$Internal$Style$classes.any) + ($mdgriffith$elm_ui$Internal$Style$dot($mdgriffith$elm_ui$Internal$Style$classes.row) + (' > ' + ($mdgriffith$elm_ui$Internal$Style$dot($mdgriffith$elm_ui$Internal$Style$classes.any) + ($mdgriffith$elm_ui$Internal$Style$dot($mdgriffith$elm_ui$Internal$Style$classes.container) + (' { flex-basis: auto !important; }}' + ($mdgriffith$elm_ui$Internal$Style$inputTextReset + ($mdgriffith$elm_ui$Internal$Style$sliderReset + ($mdgriffith$elm_ui$Internal$Style$trackReset + ($mdgriffith$elm_ui$Internal$Style$thumbReset + $mdgriffith$elm_ui$Internal$Style$explainer)))))))))))))));
-var $elm$core$String$concat = function (strings) {
-	return A2($elm$core$String$join, '', strings);
-};
 var $mdgriffith$elm_ui$Internal$Style$Intermediate = function (a) {
 	return {$: 'Intermediate', a: a};
 };
@@ -9180,7 +9791,6 @@ var $mdgriffith$elm_ui$Internal$Style$rules = _Utils_ap(
 	$mdgriffith$elm_ui$Internal$Style$overrides,
 	$mdgriffith$elm_ui$Internal$Style$renderCompact(
 		_Utils_ap($mdgriffith$elm_ui$Internal$Style$baseSheet, $mdgriffith$elm_ui$Internal$Style$commonValues)));
-var $elm$virtual_dom$VirtualDom$text = _VirtualDom_text;
 var $mdgriffith$elm_ui$Internal$Model$staticRoot = function (opts) {
 	var _v0 = opts.mode;
 	switch (_v0.$) {
@@ -9992,17 +10602,6 @@ var $mdgriffith$elm_ui$Internal$Model$adjust = F3(
 	function (size, height, vertical) {
 		return {height: height / size, size: size, vertical: vertical};
 	});
-var $elm$core$List$filter = F2(
-	function (isGood, list) {
-		return A3(
-			$elm$core$List$foldr,
-			F2(
-				function (x, xs) {
-					return isGood(x) ? A2($elm$core$List$cons, x, xs) : xs;
-				}),
-			_List_Nil,
-			list);
-	});
 var $elm$core$List$maximum = function (list) {
 	if (list.b) {
 		var x = list.a;
@@ -10308,7 +10907,6 @@ var $elm$virtual_dom$VirtualDom$keyedNode = function (tag) {
 	return _VirtualDom_keyedNode(
 		_VirtualDom_noScript(tag));
 };
-var $elm$core$Basics$not = _Basics_not;
 var $elm$html$Html$p = _VirtualDom_node('p');
 var $elm$core$Bitwise$and = _Bitwise_and;
 var $mdgriffith$elm_ui$Internal$Flag$present = F2(
@@ -10471,7 +11069,6 @@ var $elm$core$List$isEmpty = function (xs) {
 		return false;
 	}
 };
-var $elm$html$Html$text = $elm$virtual_dom$VirtualDom$text;
 var $mdgriffith$elm_ui$Internal$Model$textElementClasses = $mdgriffith$elm_ui$Internal$Style$classes.any + (' ' + ($mdgriffith$elm_ui$Internal$Style$classes.text + (' ' + ($mdgriffith$elm_ui$Internal$Style$classes.widthContent + (' ' + $mdgriffith$elm_ui$Internal$Style$classes.heightContent)))));
 var $mdgriffith$elm_ui$Internal$Model$textElement = function (str) {
 	return A2(
@@ -12092,8 +12689,48 @@ var $mdgriffith$elm_ui$Internal$Model$element = F4(
 				$mdgriffith$elm_ui$Internal$Model$NoNearbyChildren,
 				$elm$core$List$reverse(attributes)));
 	});
+var $mdgriffith$elm_ui$Internal$Model$Height = function (a) {
+	return {$: 'Height', a: a};
+};
+var $mdgriffith$elm_ui$Element$height = $mdgriffith$elm_ui$Internal$Model$Height;
+var $mdgriffith$elm_ui$Internal$Model$Content = {$: 'Content'};
+var $mdgriffith$elm_ui$Element$shrink = $mdgriffith$elm_ui$Internal$Model$Content;
+var $mdgriffith$elm_ui$Internal$Model$Width = function (a) {
+	return {$: 'Width', a: a};
+};
+var $mdgriffith$elm_ui$Element$width = $mdgriffith$elm_ui$Internal$Model$Width;
+var $mdgriffith$elm_ui$Element$el = F2(
+	function (attrs, child) {
+		return A4(
+			$mdgriffith$elm_ui$Internal$Model$element,
+			$mdgriffith$elm_ui$Internal$Model$asEl,
+			$mdgriffith$elm_ui$Internal$Model$div,
+			A2(
+				$elm$core$List$cons,
+				$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$shrink),
+				A2(
+					$elm$core$List$cons,
+					$mdgriffith$elm_ui$Element$height($mdgriffith$elm_ui$Element$shrink),
+					attrs)),
+			$mdgriffith$elm_ui$Internal$Model$Unkeyed(
+				_List_fromArray(
+					[child])));
+	});
+var $author$project$CardanoTxQuery$ael = $author$project$CardanoTxQuery$animatedUi($mdgriffith$elm_ui$Element$el);
+var $mdgriffith$elm_ui$Internal$Model$Button = {$: 'Button'};
+var $mdgriffith$elm_ui$Internal$Model$Describe = function (a) {
+	return {$: 'Describe', a: a};
+};
+var $elm$json$Json$Encode$bool = _Json_wrap;
+var $elm$html$Html$Attributes$boolProperty = F2(
+	function (key, bool) {
+		return A2(
+			_VirtualDom_property,
+			key,
+			$elm$json$Json$Encode$bool(bool));
+	});
+var $elm$html$Html$Attributes$disabled = $elm$html$Html$Attributes$boolProperty('disabled');
 var $mdgriffith$elm_ui$Element$Input$enter = 'Enter';
-var $mdgriffith$elm_ui$Internal$Model$NoAttribute = {$: 'NoAttribute'};
 var $mdgriffith$elm_ui$Element$Input$hasFocusStyle = function (attr) {
 	if (((attr.$ === 'StyleClass') && (attr.b.$ === 'PseudoSelector')) && (attr.b.a.$ === 'Focus')) {
 		var _v1 = attr.b;
@@ -12110,10 +12747,6 @@ var $mdgriffith$elm_ui$Internal$Model$htmlClass = function (cls) {
 var $mdgriffith$elm_ui$Element$Input$focusDefault = function (attrs) {
 	return A2($elm$core$List$any, $mdgriffith$elm_ui$Element$Input$hasFocusStyle, attrs) ? $mdgriffith$elm_ui$Internal$Model$NoAttribute : $mdgriffith$elm_ui$Internal$Model$htmlClass('focusable');
 };
-var $mdgriffith$elm_ui$Internal$Model$Height = function (a) {
-	return {$: 'Height', a: a};
-};
-var $mdgriffith$elm_ui$Element$height = $mdgriffith$elm_ui$Internal$Model$Height;
 var $elm$virtual_dom$VirtualDom$Normal = function (a) {
 	return {$: 'Normal', a: a};
 };
@@ -12173,8 +12806,6 @@ var $mdgriffith$elm_ui$Internal$Model$Class = F2(
 	});
 var $mdgriffith$elm_ui$Internal$Flag$cursor = $mdgriffith$elm_ui$Internal$Flag$flag(21);
 var $mdgriffith$elm_ui$Element$pointer = A2($mdgriffith$elm_ui$Internal$Model$Class, $mdgriffith$elm_ui$Internal$Flag$cursor, $mdgriffith$elm_ui$Internal$Style$classes.cursorPointer);
-var $mdgriffith$elm_ui$Internal$Model$Content = {$: 'Content'};
-var $mdgriffith$elm_ui$Element$shrink = $mdgriffith$elm_ui$Internal$Model$Content;
 var $mdgriffith$elm_ui$Element$Input$space = ' ';
 var $elm$html$Html$Attributes$tabindex = function (n) {
 	return A2(
@@ -12182,10 +12813,6 @@ var $elm$html$Html$Attributes$tabindex = function (n) {
 		'tabIndex',
 		$elm$core$String$fromInt(n));
 };
-var $mdgriffith$elm_ui$Internal$Model$Width = function (a) {
-	return {$: 'Width', a: a};
-};
-var $mdgriffith$elm_ui$Element$width = $mdgriffith$elm_ui$Internal$Model$Width;
 var $mdgriffith$elm_ui$Element$Input$button = F2(
 	function (attrs, _v0) {
 		var onPress = _v0.onPress;
@@ -12311,23 +12938,6 @@ var $mdgriffith$elm_ui$Element$Font$color = function (fontColor) {
 };
 var $author$project$CardanoTxQuery$darkmodeBack = A3($mdgriffith$elm_ui$Element$rgb255, 20, 21, 23);
 var $author$project$CardanoTxQuery$darkmodeButtonFill = A3($mdgriffith$elm_ui$Element$rgb255, 50, 62, 147);
-var $mdgriffith$elm_ui$Element$el = F2(
-	function (attrs, child) {
-		return A4(
-			$mdgriffith$elm_ui$Internal$Model$element,
-			$mdgriffith$elm_ui$Internal$Model$asEl,
-			$mdgriffith$elm_ui$Internal$Model$div,
-			A2(
-				$elm$core$List$cons,
-				$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$shrink),
-				A2(
-					$elm$core$List$cons,
-					$mdgriffith$elm_ui$Element$height($mdgriffith$elm_ui$Element$shrink),
-					attrs)),
-			$mdgriffith$elm_ui$Internal$Model$Unkeyed(
-				_List_fromArray(
-					[child])));
-	});
 var $mdgriffith$elm_ui$Internal$Model$FontFamily = F2(
 	function (a, b) {
 		return {$: 'FontFamily', a: a, b: b};
@@ -12619,7 +13229,6 @@ var $mdgriffith$elm_ui$Element$moveRight = function (x) {
 		$mdgriffith$elm_ui$Internal$Flag$moveX,
 		$mdgriffith$elm_ui$Internal$Model$MoveX(x));
 };
-var $mdgriffith$elm_ui$Element$htmlAttribute = $mdgriffith$elm_ui$Internal$Model$Attr;
 var $author$project$CardanoTxQuery$onEnterElem = A2(
 	$elm$core$Basics$composeL,
 	A2(
@@ -12628,18 +13237,6 @@ var $author$project$CardanoTxQuery$onEnterElem = A2(
 		$elm$html$Html$Events$on('keydown')),
 	$author$project$CardanoTxQuery$enterDecoder);
 var $mdgriffith$elm_ui$Internal$Model$OnRight = {$: 'OnRight'};
-var $mdgriffith$elm_ui$Internal$Model$Nearby = F2(
-	function (a, b) {
-		return {$: 'Nearby', a: a, b: b};
-	});
-var $mdgriffith$elm_ui$Element$createNearby = F2(
-	function (loc, element) {
-		if (element.$ === 'Empty') {
-			return $mdgriffith$elm_ui$Internal$Model$NoAttribute;
-		} else {
-			return A2($mdgriffith$elm_ui$Internal$Model$Nearby, loc, element);
-		}
-	});
 var $mdgriffith$elm_ui$Element$onRight = function (element) {
 	return A2($mdgriffith$elm_ui$Element$createNearby, $mdgriffith$elm_ui$Internal$Model$OnRight, element);
 };
@@ -12698,12 +13295,181 @@ var $mdgriffith$elm_ui$Element$spacing = function (x) {
 			x,
 			x));
 };
-var $elm$core$Basics$always = F2(
-	function (a, _v0) {
-		return a;
+var $andrewMacmurray$elm_simple_animation$Internal$Animation$Iteration = function (a) {
+	return {$: 'Iteration', a: a};
+};
+var $andrewMacmurray$elm_simple_animation$Simple$Animation$loop = $andrewMacmurray$elm_simple_animation$Internal$Animation$Iteration($andrewMacmurray$elm_simple_animation$Internal$Animation$Loop);
+var $andrewMacmurray$elm_simple_animation$Internal$Animation$Property$Transform = function (a) {
+	return {$: 'Transform', a: a};
+};
+var $andrewMacmurray$elm_simple_animation$Internal$Transform$Rotate = function (a) {
+	return {$: 'Rotate', a: a};
+};
+var $andrewMacmurray$elm_simple_animation$Internal$Transform$rotate = $andrewMacmurray$elm_simple_animation$Internal$Transform$Rotate;
+var $andrewMacmurray$elm_simple_animation$Simple$Animation$Property$rotate = A2($elm$core$Basics$composeL, $andrewMacmurray$elm_simple_animation$Internal$Animation$Property$Transform, $andrewMacmurray$elm_simple_animation$Internal$Transform$rotate);
+var $andrewMacmurray$elm_simple_animation$Simple$Animation$Step = F2(
+	function (a, b) {
+		return {$: 'Step', a: a, b: b};
 	});
-var $mdgriffith$elm_ui$Internal$Model$unstyled = A2($elm$core$Basics$composeL, $mdgriffith$elm_ui$Internal$Model$Unstyled, $elm$core$Basics$always);
-var $mdgriffith$elm_ui$Element$html = $mdgriffith$elm_ui$Internal$Model$unstyled;
+var $andrewMacmurray$elm_simple_animation$Simple$Animation$step = $andrewMacmurray$elm_simple_animation$Simple$Animation$Step;
+var $andrewMacmurray$elm_simple_animation$Simple$Animation$Stepped = function (a) {
+	return {$: 'Stepped', a: a};
+};
+var $andrewMacmurray$elm_simple_animation$Internal$Animation$Animation = F3(
+	function (a, b, c) {
+		return {$: 'Animation', a: a, b: b, c: c};
+	});
+var $andrewMacmurray$elm_simple_animation$Internal$Animation$Frame = F2(
+	function (a, b) {
+		return {$: 'Frame', a: a, b: b};
+	});
+var $andrewMacmurray$elm_simple_animation$Simple$Animation$duration = $andrewMacmurray$elm_simple_animation$Internal$Animation$duration_;
+var $andrewMacmurray$elm_simple_animation$Simple$Animation$adjustCompleteWait = F2(
+	function (anim, timePassed) {
+		var duration_ = $andrewMacmurray$elm_simple_animation$Simple$Animation$duration(anim);
+		return ((duration_ - timePassed) >= 1) ? duration_ : (timePassed + 1);
+	});
+var $andrewMacmurray$elm_simple_animation$Simple$Animation$frameProps = function (_v0) {
+	var props = _v0.b;
+	return props;
+};
+var $andrewMacmurray$elm_simple_animation$Simple$Animation$accumDuration = F2(
+	function (step_, curr) {
+		switch (step_.$) {
+			case 'Step':
+				var d = step_.a;
+				return d + curr;
+			case 'Wait':
+				var d = step_.a;
+				return d + curr;
+			default:
+				var anim = step_.a;
+				return A2($andrewMacmurray$elm_simple_animation$Simple$Animation$adjustCompleteWait, anim, curr);
+		}
+	});
+var $andrewMacmurray$elm_simple_animation$Simple$Animation$totalDuration = A2($elm$core$List$foldl, $andrewMacmurray$elm_simple_animation$Simple$Animation$accumDuration, 0);
+var $andrewMacmurray$elm_simple_animation$Simple$Animation$toFrames = F2(
+	function (firstFrame, steps_) {
+		var percentPerMs = 100 / $andrewMacmurray$elm_simple_animation$Simple$Animation$totalDuration(steps_);
+		var getFrame = F2(
+			function (f, _v2) {
+				var n = _v2.a;
+				var xs = _v2.b;
+				var cur = _v2.c;
+				switch (f.$) {
+					case 'Step':
+						var d = f.a;
+						var props = f.b;
+						return _Utils_Tuple3(
+							n + d,
+							_Utils_ap(
+								xs,
+								_List_fromArray(
+									[cur])),
+							A2($andrewMacmurray$elm_simple_animation$Internal$Animation$Frame, percentPerMs * (n + d), props));
+					case 'Wait':
+						var d = f.a;
+						return _Utils_Tuple3(
+							n + d,
+							_Utils_ap(
+								xs,
+								_List_fromArray(
+									[cur])),
+							A2(
+								$andrewMacmurray$elm_simple_animation$Internal$Animation$Frame,
+								percentPerMs * (n + d),
+								$andrewMacmurray$elm_simple_animation$Simple$Animation$frameProps(cur)));
+					default:
+						var d = f.a;
+						var dur = A2($andrewMacmurray$elm_simple_animation$Simple$Animation$adjustCompleteWait, d, n);
+						return _Utils_Tuple3(
+							dur,
+							_Utils_ap(
+								xs,
+								_List_fromArray(
+									[cur])),
+							A2(
+								$andrewMacmurray$elm_simple_animation$Internal$Animation$Frame,
+								percentPerMs * dur,
+								$andrewMacmurray$elm_simple_animation$Simple$Animation$frameProps(cur)));
+				}
+			});
+		return function (_v0) {
+			var xs = _v0.b;
+			var curr = _v0.c;
+			return _Utils_ap(
+				xs,
+				_List_fromArray(
+					[curr]));
+		}(
+			A3(
+				$elm$core$List$foldl,
+				getFrame,
+				_Utils_Tuple3(
+					0,
+					_List_Nil,
+					A2($andrewMacmurray$elm_simple_animation$Internal$Animation$Frame, 0, firstFrame)),
+				steps_));
+	});
+var $andrewMacmurray$elm_simple_animation$Simple$Animation$toAnimation = function (_v0) {
+	var s = _v0.a;
+	return A3(
+		$andrewMacmurray$elm_simple_animation$Internal$Animation$Animation,
+		$andrewMacmurray$elm_simple_animation$Simple$Animation$totalDuration(s.steps),
+		s.options,
+		A2($andrewMacmurray$elm_simple_animation$Simple$Animation$toFrames, s.startAt, s.steps));
+};
+var $andrewMacmurray$elm_simple_animation$Simple$Animation$steps = F2(
+	function (_v0, steps_) {
+		var options = _v0.options;
+		var startAt = _v0.startAt;
+		return $andrewMacmurray$elm_simple_animation$Simple$Animation$toAnimation(
+			$andrewMacmurray$elm_simple_animation$Simple$Animation$Stepped(
+				{options: options, startAt: startAt, steps: steps_}));
+	});
+var $andrewMacmurray$elm_simple_animation$Simple$Animation$Wait = function (a) {
+	return {$: 'Wait', a: a};
+};
+var $andrewMacmurray$elm_simple_animation$Simple$Animation$wait = $andrewMacmurray$elm_simple_animation$Simple$Animation$Wait;
+var $andrewMacmurray$elm_simple_animation$Internal$Transform$Translate = function (a) {
+	return {$: 'Translate', a: a};
+};
+var $andrewMacmurray$elm_simple_animation$Internal$Transform$X = function (a) {
+	return {$: 'X', a: a};
+};
+var $andrewMacmurray$elm_simple_animation$Internal$Transform$x = A2($elm$core$Basics$composeL, $andrewMacmurray$elm_simple_animation$Internal$Transform$Translate, $andrewMacmurray$elm_simple_animation$Internal$Transform$X);
+var $andrewMacmurray$elm_simple_animation$Simple$Animation$Property$x = A2($elm$core$Basics$composeL, $andrewMacmurray$elm_simple_animation$Internal$Animation$Property$Transform, $andrewMacmurray$elm_simple_animation$Internal$Transform$x);
+var $author$project$CardanoTxQuery$spinAndSlide = A2(
+	$andrewMacmurray$elm_simple_animation$Simple$Animation$steps,
+	{
+		options: _List_fromArray(
+			[$andrewMacmurray$elm_simple_animation$Simple$Animation$loop]),
+		startAt: _List_fromArray(
+			[
+				$andrewMacmurray$elm_simple_animation$Simple$Animation$Property$rotate(0),
+				$andrewMacmurray$elm_simple_animation$Simple$Animation$Property$x(0)
+			])
+	},
+	_List_fromArray(
+		[
+			A2(
+			$andrewMacmurray$elm_simple_animation$Simple$Animation$step,
+			1000,
+			_List_fromArray(
+				[
+					$andrewMacmurray$elm_simple_animation$Simple$Animation$Property$rotate(180),
+					$andrewMacmurray$elm_simple_animation$Simple$Animation$Property$x(50)
+				])),
+			$andrewMacmurray$elm_simple_animation$Simple$Animation$wait(500),
+			A2(
+			$andrewMacmurray$elm_simple_animation$Simple$Animation$step,
+			1000,
+			_List_fromArray(
+				[
+					$andrewMacmurray$elm_simple_animation$Simple$Animation$Property$rotate(360),
+					$andrewMacmurray$elm_simple_animation$Simple$Animation$Property$x(0)
+				]))
+		]));
 var $elm$svg$Svg$trustedNode = _VirtualDom_nodeNS('http://www.w3.org/2000/svg');
 var $elm$svg$Svg$animateTransform = $elm$svg$Svg$trustedNode('animateTransform');
 var $elm$svg$Svg$Attributes$attributeName = _VirtualDom_attribute('attributeName');
@@ -13201,10 +13967,6 @@ var $mdgriffith$elm_ui$Element$Input$autofill = A2(
 	$elm$core$Basics$composeL,
 	$mdgriffith$elm_ui$Internal$Model$Attr,
 	$elm$html$Html$Attributes$attribute('autocomplete'));
-var $mdgriffith$elm_ui$Internal$Model$Behind = {$: 'Behind'};
-var $mdgriffith$elm_ui$Element$behindContent = function (element) {
-	return A2($mdgriffith$elm_ui$Element$createNearby, $mdgriffith$elm_ui$Internal$Model$Behind, element);
-};
 var $mdgriffith$elm_ui$Internal$Model$MoveY = function (a) {
 	return {$: 'MoveY', a: a};
 };
@@ -13314,15 +14076,6 @@ var $mdgriffith$elm_ui$Element$Input$getHeight = function (attr) {
 	if (attr.$ === 'Height') {
 		var h = attr.a;
 		return $elm$core$Maybe$Just(h);
-	} else {
-		return $elm$core$Maybe$Nothing;
-	}
-};
-var $elm$core$List$head = function (list) {
-	if (list.b) {
-		var x = list.a;
-		var xs = list.b;
-		return $elm$core$Maybe$Just(x);
 	} else {
 		return $elm$core$Maybe$Nothing;
 	}
@@ -14066,8 +14819,9 @@ var $author$project$CardanoTxQuery$viewElem = function (model) {
 					[
 						$mdgriffith$elm_ui$Element$Background$color($author$project$CardanoTxQuery$darkmodeBack)
 					]),
-				A2(
-					$mdgriffith$elm_ui$Element$el,
+				A3(
+					$author$project$CardanoTxQuery$ael,
+					$author$project$CardanoTxQuery$spinAndSlide,
 					_List_fromArray(
 						[
 							$mdgriffith$elm_ui$Element$centerX,
