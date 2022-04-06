@@ -7,8 +7,8 @@ module CardanoAdaHandleQuery exposing (..)
 
 import Browser
 import Browser.Events
-import Html exposing (Html, div, button)
-import Html.Events exposing (onClick, keyCode, on)
+import Html exposing (Html)
+import Html.Events exposing (keyCode, on)
 import Http
 import Json.Decode as Decode
 import Types exposing (..)
@@ -21,6 +21,7 @@ import Framework.Spinner exposing (..)
 import Simple.Animation as Animation exposing (Animation)
 import Simple.Animation.Animated as Animated
 import Simple.Animation.Property as P
+import CardanoTxQuery exposing (Model(..))
 
 -- MAIN
 main : Program () Model Msg
@@ -166,126 +167,61 @@ viewElem model =
     Loading ->
       layout [Background.color darkmodeBack] <| ael spinAndSlide [centerX, centerY, spacing 16] <| Framework.Spinner.spinner ThreeCircles 32 cardBlue
 
-    HashFound a ->
-      layout [Background.color darkmodeBack] <| el [
-                                        moveUp 100
-                                      , centerX
-                                      , centerY
-                                      , width <| px 1300
-                                      , height <| px 82
-                                      , onRight
-                                (
-                                  Input.button
-                                      [ Background.color darkmodeButtonFill
-                                      , Border.rounded 5
-                                      , Border.width 1
-                                      , Border.color cardBlue
-                                      , centerY
-                                      , moveRight 15
-                                      , height fill
-                                      , width <| px 100
-                                      ]
-                                      { onPress = Just Reset
-                                      , label = el [Font.family [Font.sansSerif], centerX, centerY, Font.semiBold, Font.color white] <| Element.text "Reset"
-                                      }
-                                )]
-                                       (Input.text 
-                            [ centerX
-                            , centerY
-                            , height fill
-                            , width fill
-                            , spacing 16
-                            , Font.family [Font.monospace]
-                            , Font.color white
-                            , onEnterElem Reset
-                            , Background.color darkmodeBack
-                            ]
-                            { onChange = BoxContents
-                            , text = String.replace "\"" "" a
-                            , placeholder = Just <| Input.placeholder [] <| Element.text "Enter another Handle"
-                            , label = Input.labelAbove [Font.family [Font.sansSerif], Font.color white] <| Element.text <| "Handle Address:"
-                            }
-                            )
-
-
-
-    Unsubmitted boxContents ->
-      layout [Background.color darkmodeBack] <| el [ moveUp 100
-                                      , centerX
-                                      , centerY
-                                      , width <| px 1300
-                                      , height <| px 82
-                                      , onRight
-                                (
-                                  Input.button
-                                      [ Background.color darkmodeButtonFill
-                                      , Border.rounded 5
-                                      , Border.width 1
-                                      , Border.color cardBlue
-                                      , centerY
-                                      , moveRight 15
-                                      , height fill
-                                      , width <| px 100
-                                      ]
-                                      { onPress = Just <| ChainQuery boxContents
-                                      , label = el [Font.family [Font.sansSerif], centerX, centerY, Font.semiBold, Font.color white] <| Element.text "Search"
-                                      }
-                                )]
-                                       (Input.text 
-                            [ centerX
-                            , centerY
-                            , height fill
-                            , width fill
-                            , spacing 16
-                            , Font.family [Font.monospace]
-                            , Font.color white
-                            , onEnterElem (ChainQuery boxContents)
-                            , Background.color darkmodeBack
-                            ]
-                            { onChange = BoxContents
-                            , text = boxContents
-                            , placeholder = Just <| Input.placeholder [] <| Element.text "Enter an Ada Handle"
-                            , label = Input.labelAbove [Font.family [Font.sansSerif], Font.color white] <| Element.text "Get Ada Handle Address"
-                            }
-                            )
-
-    HashNotFound ->
-      layout [Background.color darkmodeBack] <| el [ moveUp 100
-                                      , centerX
-                                      , centerY
-                                      , width <| px 1300
-                                      , height <| px 82
-                                      , onRight
-                                (
-                                  Input.button
-                                      [ Background.color darkmodeButtonFill
-                                      , Border.rounded 5
-                                      , Border.width 1
-                                      , Border.color cardBlue
-                                      , centerY
-                                      , moveRight 15
-                                      , height fill
-                                      , width <| px 100
-                                      ]
-                                      { onPress = Just Reset
-                                      , label = el [Font.family [Font.sansSerif], centerX, centerY, Font.semiBold, Font.color white] <| Element.text "Search"
-                                      }
-                                )]
-                                       (Input.text 
-                            [ centerX
-                            , centerY
-                            , height fill
-                            , width fill
-                            , spacing 16
-                            , Font.family [Font.monospace]
-                            , Font.color white
-                            , onEnterElem Reset
-                            , Background.color darkmodeBack
-                            ]
-                            { onChange = BoxContents
-                            , text = ""
-                            , placeholder = Just <| Input.placeholder [] <| Element.text "Enter another Handle"
-                            , label = Input.labelAbove [Font.family [Font.sansSerif], Font.color white] <| Element.text "Ada Handle was not found on the blockchain."
-                            }
-                            )
+    _ -> layout [Background.color darkmodeBack] <| el [
+                                          moveUp 100
+                                        , centerX
+                                        , centerY
+                                        , width <| px 1300
+                                        , height <| px 82
+                                        , onRight
+                                  (
+                                    Input.button
+                                        [ Background.color darkmodeButtonFill
+                                        , Border.rounded 5
+                                        , Border.width 1
+                                        , Border.color cardBlue
+                                        , centerY
+                                        , moveRight 15
+                                        , height fill
+                                        , width <| px 100
+                                        ]
+                                        { onPress = (
+                                                      case model of 
+                                                        Unsubmitted boxContents -> Just <| ChainQuery boxContents
+                                                        _ -> Just Reset
+                                                    )
+                                        , label = el [Font.family [Font.sansSerif], centerX, centerY, Font.semiBold, Font.color white] <| Element.text "Reset"
+                                        }
+                                  )]
+                                        (Input.text 
+                                          [ centerX
+                                          , centerY
+                                          , height fill
+                                          , width fill
+                                          , spacing 16
+                                          , Font.family [Font.monospace]
+                                          , Font.color white
+                                          , onEnterElem (
+                                                          case model of 
+                                                            Unsubmitted boxContents -> ChainQuery boxContents
+                                                            _ -> Reset
+                                                        )
+                                          , Background.color darkmodeBack
+                                          ]
+                                          { onChange = BoxContents
+                                          , text = 
+                                                (
+                                                  case model of 
+                                                    Unsubmitted boxContents -> boxContents
+                                                    HashFound a -> String.replace "\"" "" a
+                                                    _ -> ""
+                                                )
+                                          , placeholder = Just <| Input.placeholder [] <| Element.text "Enter a Handle"
+                                          , label = Input.labelAbove [Font.family [Font.sansSerif], Font.color white] <| Element.text <| (case model of 
+                                                                                                                                            Unsubmitted _ -> "Get Ada Handle Address"
+                                                                                                                                            HashFound _ -> "Handle Address:"
+                                                                                                                                            _ -> "Ada Handle was not found on the blockchain."
+                                                                                                                                          )
+                                          }
+                                        )
 
