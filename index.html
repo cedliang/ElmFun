@@ -12757,7 +12757,7 @@ var $mdgriffith$elm_ui$Element$rgb255 = F3(
 	function (red, green, blue) {
 		return A4($mdgriffith$elm_ui$Internal$Model$Rgba, red / 255, green / 255, blue / 255, 1);
 	});
-var $author$project$CardanoAdaHandleQuery$cardBlue = A3($mdgriffith$elm_ui$Element$rgb255, 42, 113, 208);
+var $author$project$Colours$cardBlue = A3($mdgriffith$elm_ui$Element$rgb255, 42, 113, 208);
 var $mdgriffith$elm_ui$Internal$Model$AlignX = function (a) {
 	return {$: 'AlignX', a: a};
 };
@@ -12816,8 +12816,8 @@ var $mdgriffith$elm_ui$Element$Font$color = function (fontColor) {
 			'color',
 			fontColor));
 };
-var $author$project$CardanoAdaHandleQuery$darkmodeBack = A3($mdgriffith$elm_ui$Element$rgb255, 20, 21, 23);
-var $author$project$CardanoAdaHandleQuery$darkmodeButtonFill = A3($mdgriffith$elm_ui$Element$rgb255, 50, 62, 147);
+var $author$project$Colours$darkmodeBack = A3($mdgriffith$elm_ui$Element$rgb255, 20, 21, 23);
+var $author$project$Colours$darkmodeButtonFill = A3($mdgriffith$elm_ui$Element$rgb255, 50, 62, 147);
 var $mdgriffith$elm_ui$Internal$Model$FontFamily = F2(
 	function (a, b) {
 		return {$: 'FontFamily', a: a, b: b};
@@ -14663,14 +14663,14 @@ var $mdgriffith$elm_ui$Element$Input$text = $mdgriffith$elm_ui$Element$Input$tex
 		spellchecked: false,
 		type_: $mdgriffith$elm_ui$Element$Input$TextInputNode('text')
 	});
-var $author$project$CardanoAdaHandleQuery$white = A3($mdgriffith$elm_ui$Element$rgb255, 230, 230, 230);
+var $author$project$Colours$white = A3($mdgriffith$elm_ui$Element$rgb255, 230, 230, 230);
 var $author$project$CardanoAdaHandleQuery$viewElem = function (model) {
 	if (model.$ === 'Loading') {
 		return A2(
 			$mdgriffith$elm_ui$Element$layout,
 			_List_fromArray(
 				[
-					$mdgriffith$elm_ui$Element$Background$color($author$project$CardanoAdaHandleQuery$darkmodeBack)
+					$mdgriffith$elm_ui$Element$Background$color($author$project$Colours$darkmodeBack)
 				]),
 			A3(
 				$author$project$CardanoAdaHandleQuery$ael,
@@ -14681,13 +14681,13 @@ var $author$project$CardanoAdaHandleQuery$viewElem = function (model) {
 						$mdgriffith$elm_ui$Element$centerY,
 						$mdgriffith$elm_ui$Element$spacing(16)
 					]),
-				A3($lucamug$style_framework$Framework$Spinner$spinner, $lucamug$style_framework$Framework$Spinner$ThreeCircles, 32, $author$project$CardanoAdaHandleQuery$cardBlue)));
+				A3($lucamug$style_framework$Framework$Spinner$spinner, $lucamug$style_framework$Framework$Spinner$ThreeCircles, 32, $author$project$Colours$cardBlue)));
 	} else {
 		return A2(
 			$mdgriffith$elm_ui$Element$layout,
 			_List_fromArray(
 				[
-					$mdgriffith$elm_ui$Element$Background$color($author$project$CardanoAdaHandleQuery$darkmodeBack)
+					$mdgriffith$elm_ui$Element$Background$color($author$project$Colours$darkmodeBack)
 				]),
 			A2(
 				$mdgriffith$elm_ui$Element$el,
@@ -14705,10 +14705,10 @@ var $author$project$CardanoAdaHandleQuery$viewElem = function (model) {
 							$mdgriffith$elm_ui$Element$Input$button,
 							_List_fromArray(
 								[
-									$mdgriffith$elm_ui$Element$Background$color($author$project$CardanoAdaHandleQuery$darkmodeButtonFill),
+									$mdgriffith$elm_ui$Element$Background$color($author$project$Colours$darkmodeButtonFill),
 									$mdgriffith$elm_ui$Element$Border$rounded(5),
 									$mdgriffith$elm_ui$Element$Border$width(1),
-									$mdgriffith$elm_ui$Element$Border$color($author$project$CardanoAdaHandleQuery$cardBlue),
+									$mdgriffith$elm_ui$Element$Border$color($author$project$Colours$cardBlue),
 									$mdgriffith$elm_ui$Element$centerY,
 									$mdgriffith$elm_ui$Element$moveRight(15),
 									$mdgriffith$elm_ui$Element$height($mdgriffith$elm_ui$Element$fill),
@@ -14726,7 +14726,7 @@ var $author$project$CardanoAdaHandleQuery$viewElem = function (model) {
 											$mdgriffith$elm_ui$Element$centerX,
 											$mdgriffith$elm_ui$Element$centerY,
 											$mdgriffith$elm_ui$Element$Font$semiBold,
-											$mdgriffith$elm_ui$Element$Font$color($author$project$CardanoAdaHandleQuery$white)
+											$mdgriffith$elm_ui$Element$Font$color($author$project$Colours$white)
 										]),
 									$mdgriffith$elm_ui$Element$text('Reset')),
 								onPress: function () {
@@ -14752,7 +14752,7 @@ var $author$project$CardanoAdaHandleQuery$viewElem = function (model) {
 							$mdgriffith$elm_ui$Element$Font$family(
 							_List_fromArray(
 								[$mdgriffith$elm_ui$Element$Font$monospace])),
-							$mdgriffith$elm_ui$Element$Font$color($author$project$CardanoAdaHandleQuery$white),
+							$mdgriffith$elm_ui$Element$Font$color($author$project$Colours$white),
 							$author$project$CardanoAdaHandleQuery$onEnterElem(
 							function () {
 								if (model.$ === 'Unsubmitted') {
@@ -14762,7 +14762,7 @@ var $author$project$CardanoAdaHandleQuery$viewElem = function (model) {
 									return $author$project$CardanoAdaHandleQuery$Reset;
 								}
 							}()),
-							$mdgriffith$elm_ui$Element$Background$color($author$project$CardanoAdaHandleQuery$darkmodeBack)
+							$mdgriffith$elm_ui$Element$Background$color($author$project$Colours$darkmodeBack)
 						]),
 					{
 						label: A2(
@@ -14772,7 +14772,7 @@ var $author$project$CardanoAdaHandleQuery$viewElem = function (model) {
 									$mdgriffith$elm_ui$Element$Font$family(
 									_List_fromArray(
 										[$mdgriffith$elm_ui$Element$Font$sansSerif])),
-									$mdgriffith$elm_ui$Element$Font$color($author$project$CardanoAdaHandleQuery$white)
+									$mdgriffith$elm_ui$Element$Font$color($author$project$Colours$white)
 								]),
 							$mdgriffith$elm_ui$Element$text(
 								function () {
