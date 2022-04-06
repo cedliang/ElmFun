@@ -201,7 +201,16 @@ viewElem model =
 
                                     _ ->
                                         Just Reset
-                            , label = el [ Font.family [ Font.sansSerif ], centerX, centerY, Font.semiBold, Font.color white ] <| Element.text "Reset"
+                            , label =
+                                el [ Font.family [ Font.sansSerif ], centerX, centerY, Font.semiBold, Font.color white ] <|
+                                    Element.text
+                                        (case model of
+                                            Unsubmitted _ ->
+                                                "Search"
+
+                                            _ ->
+                                                "Reset"
+                                        )
                             }
                         )
                     ]

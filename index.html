@@ -14728,7 +14728,14 @@ var $author$project$CardanoAdaHandleQuery$viewElem = function (model) {
 											$mdgriffith$elm_ui$Element$Font$semiBold,
 											$mdgriffith$elm_ui$Element$Font$color($author$project$Colours$white)
 										]),
-									$mdgriffith$elm_ui$Element$text('Reset')),
+									$mdgriffith$elm_ui$Element$text(
+										function () {
+											if (model.$ === 'Unsubmitted') {
+												return 'Search';
+											} else {
+												return 'Reset';
+											}
+										}())),
 								onPress: function () {
 									if (model.$ === 'Unsubmitted') {
 										var boxContents = model.a;
