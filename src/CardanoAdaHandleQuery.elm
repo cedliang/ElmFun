@@ -7,14 +7,13 @@ module CardanoAdaHandleQuery exposing (..)
 
 import Browser
 import Browser.Events
-import CardanoTxQuery exposing (Model(..))
-import Colours exposing (..)
+import Colours exposing (cardBlue, darkmodeBack, darkmodeButtonFill, white)
 import Element exposing (..)
 import Element.Background as Background
 import Element.Border as Border
 import Element.Font as Font
 import Element.Input as Input
-import Framework.Spinner exposing (..)
+import Framework.Spinner exposing (Spinner(..))
 import Html exposing (Html)
 import Html.Events exposing (keyCode, on)
 import Http
@@ -22,7 +21,6 @@ import Json.Decode as Decode
 import Simple.Animation as Animation exposing (Animation)
 import Simple.Animation.Animated as Animated
 import Simple.Animation.Property as P
-import Types exposing (..)
 
 
 
